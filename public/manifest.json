@@ -1,0 +1,50 @@
+{
+  "manifest_version": 3,
+  "name": "Panopto Lecturer Tracker",
+  "version": "0.1.0",
+  "description": "Automatically zooms and pans a Panopto lecture video to follow the lecturer, with a one-click toggle to pause tracking.",
+  "permissions": ["storage", "offscreen"],
+  "host_permissions": [
+    "*://*.panopto.com/*",
+    "*://*.panopto.eu/*",
+    "*://*/Panopto/Pages/*",
+    "*://*/Panopto/Podcast/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.panopto.com/*",
+        "*://*.panopto.eu/*",
+        "*://*/Panopto/Pages/*",
+        "*://*/Panopto/Podcast/*"
+      ],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Panopto Lecturer Tracker"
+  },
+  "commands": {
+    "toggle-tracking": {
+      "suggested_key": {
+        "default": "Alt+Shift+T"
+      },
+      "description": "Toggle lecturer tracking on/off"
+    }
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["models/*", "wasm/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+.plt-video-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.plt-video-wrap video {
+  transition: transform 550ms ease-out;
+  transform-origin: 0 0;
+  will-change: transform;
+}
+
+.plt-toggle-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(20, 20, 24, 0.72);
+  color: #fff;
+  font: 600 12px/1 system-ui, -apple-system, Segoe UI, sans-serif;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: background 150ms ease;
+  user-select: none;
+}
+
+.plt-toggle-btn:hover {
+  background: rgba(20, 20, 24, 0.9);
+}
+
+.plt-toggle-btn .plt-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #8a8a92;
+  flex: none;
+}
+
+.plt-toggle-btn.plt-active .plt-dot {
+  background: #34d058;
+  box-shadow: 0 0 6px #34d058;
+}
+
+.plt-toggle-btn.plt-searching .plt-dot {
+  background: #f2c94c;
+  animation: plt-pulse 1s ease-in-out infinite;
+}
+
+@keyframes plt-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
