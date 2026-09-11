@@ -80,9 +80,10 @@ address bar on the Panopto viewer page), add another pattern to
     drag this slider until the blackboard is centered the way you want, and
     it'll stay there.
 - If the lecturer walks off-screen or points somewhere outside the current
-  zoomed crop, tracking will keep searching and zoom back out automatically
-  after ~1.4s without a detection — or just hit the button/shortcut to bail
-  out to full view immediately.
+  zoomed crop, the view holds at its last position (dot turns yellow/
+  "searching") and resumes tracking as soon as he's detected again in
+  roughly the same spot — it does **not** zoom back out on its own. Hit the
+  button/shortcut any time to bail out to full view immediately.
 
 ## Known limitations
 
