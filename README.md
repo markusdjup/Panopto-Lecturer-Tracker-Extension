@@ -14,6 +14,9 @@ anywhere — detection uses [MediaPipe Tasks Vision](https://developers.google.c
 (WASM) with a bundled EfficientDet-Lite0 model, run inside an extension
 offscreen document.
 
+> **New here?** See [`SETUP.md`](SETUP.md) for a full step-by-step guide,
+> including downloading the code from GitHub and loading it into Chrome.
+
 ## How it works
 
 - **`content.js`** finds the Panopto `<video>` element, draws it into a small
